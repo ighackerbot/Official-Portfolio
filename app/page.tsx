@@ -19,6 +19,8 @@ import {
   Trophy,
   Lightbulb,
   Users,
+  ImageIcon,
+  Upload,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -35,6 +37,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const techStack = [
   { name: "JavaScript", icon: "🟨", category: "Frontend" },
@@ -53,35 +56,43 @@ const techStack = [
 const projects = [
   {
     title: "CryptoDash",
-    description: "Real-time cryptocurrency dashboard with live price tracking and portfolio management",
+    description:
+      "Real-time cryptocurrency dashboard with live price tracking, portfolio management, and advanced analytics for crypto traders.",
     tech: ["React", "WebSocket", "Chart.js", "Tailwind"],
     demo: "#",
     github: "#",
     status: "Live",
+    image: "/placeholder.svg?height=200&width=400&text=CryptoDash+Screenshot",
   },
   {
     title: "Get Insta Fresh",
-    description: "Full-stack e-commerce platform for fresh groceries with real-time inventory",
+    description:
+      "Full-stack e-commerce platform for fresh groceries with real-time inventory management and delivery tracking.",
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
     demo: "#",
     github: "#",
     status: "WIP",
+    image: "/placeholder.svg?height=200&width=400&text=Get+Insta+Fresh+Screenshot",
   },
   {
     title: "Space Shooter",
-    description: "Interactive web browser game built with vanilla JavaScript and Canvas API",
+    description:
+      "Interactive web browser game built with vanilla JavaScript featuring smooth animations and engaging gameplay mechanics.",
     tech: ["JavaScript", "Canvas API", "Web Audio"],
     demo: "#",
     github: "#",
     status: "Live",
+    image: "/placeholder.svg?height=200&width=400&text=Space+Shooter+Screenshot",
   },
   {
     title: "e-Raktkosh",
-    description: "Blood bank matching system connecting donors with recipients efficiently",
+    description:
+      "Blood bank matching system connecting donors with recipients efficiently using location-based services and real-time notifications.",
     tech: ["React", "Firebase", "Google Maps API"],
     demo: "#",
     github: "#",
     status: "Live",
+    image: "/placeholder.svg?height=200&width=400&text=e-Raktkosh+Screenshot",
   },
 ]
 
@@ -127,23 +138,21 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-['Inter'] overflow-x-hidden">
-      {/* Background Music Toggle */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="fixed top-4 right-4 z-50"
-      >
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={toggleMusic}
-          className="bg-[#121212]/80 border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212]"
-        >
-          {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}🎵 Lofi
-        </Button>
-      </motion.div>
+    <div className="min-h-screen bg-background text-foreground font-['Inter'] overflow-x-hidden transition-colors duration-300">
+      {/* Theme and Music Toggles */}
+      <div className="fixed top-4 right-4 z-50 flex gap-2">
+        <ThemeToggle />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={toggleMusic}
+            className="bg-background/80 border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-background transition-colors"
+          >
+            {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}🎵 Lofi
+          </Button>
+        </motion.div>
+      </div>
 
       {/* Visitor Counter */}
       <motion.div
@@ -152,19 +161,20 @@ export default function Portfolio() {
         transition={{ delay: 1.5 }}
         className="fixed bottom-4 right-4 z-50"
       >
-        <Badge variant="outline" className="bg-[#121212]/80 border-[#00C896] text-[#00C896] px-3 py-1">
+        <Badge variant="outline" className="bg-background/80 border-[#00C896] text-[#00C896] px-3 py-1">
           <Eye className="w-4 h-4 mr-2" />
           Visitors: {visitorCount.toLocaleString()}
         </Badge>
       </motion.div>
 
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Hero Section with Background Image */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden hero-bg">
+        <div className="absolute inset-0 hero-overlay" />
         <motion.div style={{ y }} className="absolute inset-0 bg-gradient-to-br from-[#00C896]/10 to-transparent" />
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
               Hi, I'm <span className="text-[#00C896]">Anuj Jain</span>
               <br />I build fast, scalable <span className="text-[#00C896]">web products</span>
               <br />& startup ideas.
@@ -175,7 +185,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8 font-light"
+            className="text-xl md:text-2xl text-white/90 mb-8 font-light drop-shadow-lg"
           >
             Developer. Founder. Problem Solver.
           </motion.p>
@@ -188,7 +198,7 @@ export default function Portfolio() {
           >
             <Button
               size="lg"
-              className="bg-[#00C896] hover:bg-[#00C896]/80 text-[#121212] font-semibold px-8"
+              className="bg-[#00C896] hover:bg-[#00C896]/80 text-[#121212] font-semibold px-8 shadow-xl"
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             >
               View Projects
@@ -197,7 +207,7 @@ export default function Portfolio() {
             <Button
               size="lg"
               variant="outline"
-              className="border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212] px-8 bg-transparent"
+              className="border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212] px-8 bg-white/10 backdrop-blur-sm shadow-xl"
               asChild
             >
               <Link href="/startup-ideas">
@@ -223,7 +233,7 @@ export default function Portfolio() {
               <Rocket className="inline-block w-8 h-8 mr-3 text-[#00C896]" />
               Vision & Mission
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg md:text-xl theme-text-muted leading-relaxed">
               Currently building a <span className="text-[#00C896] font-semibold">supply-chain eCommerce platform</span>{" "}
               for restaurant kitchens. Passionate about combining{" "}
               <span className="text-[#00C896] font-semibold">code + creativity</span> to build real-world startups that
@@ -247,7 +257,7 @@ export default function Portfolio() {
               <Code className="inline-block w-8 h-8 mr-3 text-[#00C896]" />
               Frontend Specialist with Backend Fluency
             </h2>
-            <p className="text-gray-400 text-lg">Technologies I work with daily</p>
+            <p className="theme-text-muted text-lg">Technologies I work with daily</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
@@ -261,11 +271,11 @@ export default function Portfolio() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="group"
               >
-                <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00C896] transition-all duration-300 cursor-pointer">
+                <Card className="theme-card hover:border-[#00C896] transition-all duration-300 cursor-pointer">
                   <CardContent className="p-4 text-center">
                     <div className="text-2xl mb-2">{tech.icon}</div>
                     <h3 className="font-semibold text-sm">{tech.name}</h3>
-                    <p className="text-xs text-gray-500 mt-1">{tech.category}</p>
+                    <p className="text-xs theme-text-muted mt-1">{tech.category}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -274,7 +284,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Showcase */}
+      {/* Enhanced Projects Showcase */}
       <section id="projects" className="py-20 bg-gradient-to-l from-[#00C896]/5 to-transparent">
         <div className="container mx-auto px-6">
           <motion.div
@@ -282,13 +292,15 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-gray-400 text-lg">Building solutions that matter</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
+            <p className="theme-text-muted text-xl max-w-2xl mx-auto">
+              Building solutions that matter - from concept to deployment
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -296,44 +308,74 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10 }}
                 className="group"
               >
-                <Card className="bg-[#1a1a1a] border-gray-800 hover:border-[#00C896] transition-all duration-300 h-full">
-                  <CardHeader>
-                    <div className="flex justify-between items-start mb-2">
-                      <CardTitle className="text-xl group-hover:text-[#00C896] transition-colors">
+                <Card className="theme-card hover:border-[#00C896] transition-all duration-300 h-full project-card overflow-hidden">
+                  {/* Project Screenshot Area */}
+                  <div className="relative h-48 bg-gradient-to-br from-[#00C896]/10 to-[#00C896]/5 flex items-center justify-center border-b border-border">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00C896]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="text-center z-10">
+                      <ImageIcon className="w-12 h-12 text-[#00C896] mx-auto mb-2 opacity-50" />
+                      <p className="text-sm theme-text-muted">Project Screenshot</p>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="mt-2 border-[#00C896]/50 text-[#00C896] hover:bg-[#00C896] hover:text-white bg-transparent"
+                      >
+                        <Upload className="w-4 h-4 mr-2" />
+                        Upload Image
+                      </Button>
+                    </div>
+                  </div>
+
+                  <CardHeader className="pb-4">
+                    <div className="flex justify-between items-start mb-3">
+                      <CardTitle className="text-2xl group-hover:text-[#00C896] transition-colors">
                         {project.title}
                       </CardTitle>
                       <Badge
                         variant={project.status === "Live" ? "default" : "secondary"}
-                        className={project.status === "Live" ? "bg-[#00C896] text-[#121212]" : ""}
+                        className={`${
+                          project.status === "Live"
+                            ? "bg-[#00C896] text-[#121212] shadow-lg"
+                            : "bg-yellow-500 text-[#121212]"
+                        } px-3 py-1 font-semibold`}
                       >
                         {project.status}
                       </Badge>
                     </div>
-                    <CardDescription className="text-gray-300">{project.description}</CardDescription>
+                    <CardDescription className="theme-text-muted text-base leading-relaxed">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 mb-4">
+
+                  <CardContent className="pt-0">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech) => (
-                        <Badge key={tech} variant="outline" className="text-xs">
+                        <Badge
+                          key={tech}
+                          variant="outline"
+                          className="text-xs border-[#00C896]/30 text-[#00C896] hover:bg-[#00C896]/10 transition-colors"
+                        >
                           {tech}
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-4">
                       <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212] bg-transparent"
+                        size="default"
+                        className="flex-1 bg-[#00C896] hover:bg-[#00C896]/80 text-[#121212] font-semibold shadow-lg"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
+                        Live Demo
                       </Button>
-                      <Button size="sm" variant="outline">
+                      <Button
+                        size="default"
+                        variant="outline"
+                        className="flex-1 border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212] bg-transparent"
+                      >
                         <Github className="w-4 h-4 mr-2" />
-                        Code
+                        Source Code
                       </Button>
                     </div>
                   </CardContent>
@@ -392,7 +434,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Got an idea or product you want to build?</h2>
-            <p className="text-xl text-gray-300 mb-8">Let's turn it into reality together.</p>
+            <p className="text-xl theme-text-muted mb-8">Let's turn it into reality together.</p>
 
             <Dialog>
               <DialogTrigger asChild>
@@ -401,10 +443,10 @@ export default function Portfolio() {
                   <Users className="ml-2 w-5 h-5" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="bg-[#1a1a1a] border-gray-800 text-white">
+              <DialogContent className="theme-card border-border">
                 <DialogHeader>
                   <DialogTitle className="text-[#00C896]">Let's Build Something Amazing</DialogTitle>
-                  <DialogDescription className="text-gray-300">
+                  <DialogDescription className="theme-text-muted">
                     Tell me about your project idea and let's discuss how we can bring it to life.
                   </DialogDescription>
                 </DialogHeader>
@@ -415,7 +457,7 @@ export default function Portfolio() {
                       id="name"
                       value={collaborationForm.name}
                       onChange={(e) => setCollaborationForm((prev) => ({ ...prev, name: e.target.value }))}
-                      className="bg-[#121212] border-gray-700 focus:border-[#00C896]"
+                      className="bg-background border-border focus:border-[#00C896]"
                       required
                     />
                   </div>
@@ -425,7 +467,7 @@ export default function Portfolio() {
                       id="projectIdea"
                       value={collaborationForm.projectIdea}
                       onChange={(e) => setCollaborationForm((prev) => ({ ...prev, projectIdea: e.target.value }))}
-                      className="bg-[#121212] border-gray-700 focus:border-[#00C896]"
+                      className="bg-background border-border focus:border-[#00C896]"
                       rows={3}
                       required
                     />
@@ -436,7 +478,7 @@ export default function Portfolio() {
                       id="techStack"
                       value={collaborationForm.techStack}
                       onChange={(e) => setCollaborationForm((prev) => ({ ...prev, techStack: e.target.value }))}
-                      className="bg-[#121212] border-gray-700 focus:border-[#00C896]"
+                      className="bg-background border-border focus:border-[#00C896]"
                       placeholder="React, Node.js, etc."
                     />
                   </div>
@@ -447,7 +489,7 @@ export default function Portfolio() {
                       type="email"
                       value={collaborationForm.email}
                       onChange={(e) => setCollaborationForm((prev) => ({ ...prev, email: e.target.value }))}
-                      className="bg-[#121212] border-gray-700 focus:border-[#00C896]"
+                      className="bg-background border-border focus:border-[#00C896]"
                       required
                     />
                   </div>
@@ -478,7 +520,7 @@ export default function Portfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#00C896]/10 transition-colors"
+                className="flex flex-col items-center p-4 rounded-lg theme-card hover:bg-[#00C896]/10 transition-colors"
               >
                 <Github className="w-8 h-8 mb-2 text-[#00C896]" />
                 <span className="text-sm">GitHub</span>
@@ -489,7 +531,7 @@ export default function Portfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#00C896]/10 transition-colors"
+                className="flex flex-col items-center p-4 rounded-lg theme-card hover:bg-[#00C896]/10 transition-colors"
               >
                 <Linkedin className="w-8 h-8 mb-2 text-[#00C896]" />
                 <span className="text-sm">LinkedIn</span>
@@ -500,7 +542,7 @@ export default function Portfolio() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#00C896]/10 transition-colors"
+                className="flex flex-col items-center p-4 rounded-lg theme-card hover:bg-[#00C896]/10 transition-colors"
               >
                 <Code className="w-8 h-8 mb-2 text-[#00C896]" />
                 <span className="text-sm">LeetCode</span>
@@ -509,7 +551,7 @@ export default function Portfolio() {
               <motion.a
                 href="mailto:anuj.jain@adypu.edu.in"
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#00C896]/10 transition-colors"
+                className="flex flex-col items-center p-4 rounded-lg theme-card hover:bg-[#00C896]/10 transition-colors"
               >
                 <Mail className="w-8 h-8 mb-2 text-[#00C896]" />
                 <span className="text-sm">Email</span>
@@ -518,14 +560,14 @@ export default function Portfolio() {
               <motion.a
                 href="tel:+918717986200"
                 whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center p-4 rounded-lg bg-[#1a1a1a] hover:bg-[#00C896]/10 transition-colors"
+                className="flex flex-col items-center p-4 rounded-lg theme-card hover:bg-[#00C896]/10 transition-colors"
               >
                 <Phone className="w-8 h-8 mb-2 text-[#00C896]" />
                 <span className="text-sm">Call</span>
               </motion.a>
             </div>
 
-            <div className="space-y-2 text-gray-400">
+            <div className="space-y-2 theme-text-muted">
               <p className="flex items-center justify-center gap-2">
                 <Mail className="w-4 h-4" />
                 anuj.jain@adypu.edu.in
@@ -540,14 +582,14 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-gray-800">
+      <footer className="py-12 border-t border-border">
         <div className="container mx-auto px-6 text-center">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-400 italic"
+            className="text-lg theme-text-muted italic"
           >
             "Start small, build fast, iterate faster. 🚀"
           </motion.p>

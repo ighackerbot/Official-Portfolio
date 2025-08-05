@@ -32,24 +32,24 @@
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 7 11% 7%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --card: 7 11% 10%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
+    --popover: 7 11% 7%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
+    --secondary: 7 11% 15%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --muted: 7 11% 15%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
+    --accent: 7 11% 15%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: 7 11% 15%;
+    --input: 7 11% 15%;
     --ring: 0 0% 83.1%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -63,7 +63,73 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Dark theme specific styles */
+  .dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  .light {
+    background-color: #fafafa;
+    color: #1a1a1a;
+  }
+
+  /* Theme-aware card backgrounds */
+  .theme-card {
+    @apply bg-card border-border;
+  }
+
+  .dark .theme-card {
+    background-color: #1a1a1a;
+    border-color: #374151;
+  }
+
+  .light .theme-card {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Theme-aware text colors */
+  .theme-text-muted {
+    @apply text-muted-foreground;
+  }
+
+  .dark .theme-text-muted {
+    color: #9ca3af;
+  }
+
+  .light .theme-text-muted {
+    color: #6b7280;
+  }
+
+  /* Hero background image */
+  .hero-bg {
+    background-image: url("/images/anuj-profile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(18, 18, 18, 0.95) 0%,
+      rgba(18, 18, 18, 0.85) 50%,
+      rgba(0, 200, 150, 0.1) 100%
+    );
+  }
+
+  .light .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(250, 250, 250, 0.95) 0%,
+      rgba(250, 250, 250, 0.85) 50%,
+      rgba(0, 200, 150, 0.1) 100%
+    );
   }
 }
 
@@ -84,6 +150,30 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .light .gradient-text {
+    background: linear-gradient(135deg, #00c896, #1a1a1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Project card enhancements */
+  .project-card {
+    @apply transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .dark .project-card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .light .project-card {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .project-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 200, 150, 0.25);
   }
 }
 
