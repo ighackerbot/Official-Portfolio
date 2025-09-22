@@ -12,8 +12,6 @@ import {
   ExternalLink,
   Code,
   Rocket,
-  Play,
-  Pause,
   Eye,
   ChevronRight,
   Trophy,
@@ -21,6 +19,7 @@ import {
   Users,
   ImageIcon,
   Upload,
+  Download,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -38,26 +37,49 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { EducationTimeline } from "@/components/education-timeline"
+import { AchievementsSection } from "@/components/achievements-section"
+
+import {
+  FileJson,
+  FileType,
+  Braces,
+  Layers,
+  Repeat,
+  PaintBucket,
+  Zap,
+  Bolt,
+  Cable,
+  Figma as FigmaIcon,
+  PanelLeft,
+  FileCode,
+  Terminal,
+  Shield,
+  Server,
+  Database,
+  Cpu,
+  Brain,
+} from "lucide-react"
 
 const techStack = [
-  { name: "JavaScript", icon: "🟨", category: "Frontend" },
-  { name: "TypeScript", icon: "🔷", category: "Frontend" },
-  { name: "Python", icon: "🐍", category: "Backend" },
-  { name: "React", icon: "⚛️", category: "Frontend" },
-  { name: "Redux", icon: "🔄", category: "State" },
-  { name: "Tailwind", icon: "🎨", category: "Styling" },
-  { name: "Supabase", icon: "⚡", category: "Backend" },
-  { name: "Vite", icon: "⚡", category: "Build" },
-  { name: "WebSocket", icon: "🔌", category: "Real-time" },
-  { name: "Figma", icon: "🎨", category: "Design" },
-  { name: "Pandas", icon: "🐼", category: "Data" },
-  { name: "HTML", icon: "🐼", category: "Frontend" },
-  { name: "Linux", icon: "🐼", category: "OS" },
-  { name: "Cyber Security", icon: "🐼", category: "Data" },
-  { name: "Express JS", icon: "🐼", category: "Backend"},
-  { name: "MySQL", icon: "🐼", category: "Database"},
-  { name: "NodeJS", icon: "🐼", category: "Backend" },
-  { name: "Generative AI", icon: "🐼", category: "AI" },
+  { name: "JavaScript", icon: <FileJson className="w-8 h-8 text-yellow-400" />, category: "Frontend" },
+  { name: "TypeScript", icon: <FileType className="w-8 h-8 text-blue-500" />, category: "Frontend" },
+  { name: "Python", icon: <Braces className="w-8 h-8 text-green-500" />, category: "Backend" },
+  { name: "React", icon: <Layers className="w-8 h-8 text-blue-400" />, category: "Frontend" },
+  { name: "Redux", icon: <Repeat className="w-8 h-8 text-purple-500" />, category: "State" },
+  { name: "Tailwind", icon: <PaintBucket className="w-8 h-8 text-cyan-500" />, category: "Styling" },
+  { name: "Supabase", icon: <Zap className="w-8 h-8 text-green-600" />, category: "Backend" },
+  { name: "Vite", icon: <Bolt className="w-8 h-8 text-yellow-500" />, category: "Build" },
+  { name: "WebSocket", icon: <Cable className="w-8 h-8 text-blue-600" />, category: "Real-time" },
+  { name: "Figma", icon: <FigmaIcon className="w-8 h-8 text-pink-500" />, category: "Design" },
+  { name: "Pandas", icon: <PanelLeft className="w-8 h-8 text-blue-500" />, category: "Data" },
+  { name: "HTML", icon: <FileCode className="w-8 h-8 text-orange-500" />, category: "Frontend" },
+  { name: "Linux", icon: <Terminal className="w-8 h-8 text-gray-600" />, category: "OS" },
+  { name: "Cyber Security", icon: <Shield className="w-8 h-8 text-red-500" />, category: "Data" },
+  { name: "Express JS", icon: <Server className="w-8 h-8 text-gray-500" />, category: "Backend"},
+  { name: "MySQL", icon: <Database className="w-8 h-8 text-blue-600" />, category: "Database"},
+  { name: "NodeJS", icon: <Cpu className="w-8 h-8 text-green-500" />, category: "Backend" },
+  { name: "Generative AI", icon: <Brain className="w-8 h-8 text-purple-600" />, category: "AI" },
 ]
 
 const projects = [
@@ -69,7 +91,7 @@ const projects = [
     demo: "https://crypto-dash-alpha.vercel.app/",
     github: "https://github.com/ighackerbot/CryptoDash",
     status: "Live",
-    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/cryptodash.png",
+    image: "/cryptodash.png",
   },
   {
     title: "MindFulPath",
@@ -79,7 +101,7 @@ const projects = [
     demo: "https://mentalhealthwellnessmindfullpath.vercel.app/",
     github: "https://github.com/ighackerbot/mental-health-S-W",
     status: "Live",
-    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/mindfullpath.png",
+    image: "/mindfullpath.png",
   },
   {
     title: "ChefLinq",
@@ -89,7 +111,7 @@ const projects = [
     demo: "https://chef-linq.vercel.app/",
     github: "#",
     status: "Work In Progress",
-    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/cheflinq.png",
+    image: "/cheflinq.png",
   },
   {
     title: "Space Shooter",
@@ -99,7 +121,7 @@ const projects = [
     demo: "https://space-shooter-coral.vercel.app/",
     github: "https://github.com/ighackerbot/Space-Shooter",
     status: "Live",
-    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/spaceshooter.png",
+    image: "/spaceshooter.png",
   },
   {
     title: "e-Raktkosh",
@@ -109,7 +131,7 @@ const projects = [
     demo: "https://e-rakt.vercel.app/",
     github: "https://github.com/ighackerbot/e-Rakt",
     status: "Live",
-    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/e-raktkosh.png",
+    image: "/e-raktkosh.png",
   },
 ]
 
@@ -124,7 +146,6 @@ const achievements = [
 ]
 
 export default function Portfolio() {
-  const [isPlaying, setIsPlaying] = useState(false)
   const [visitorCount, setVisitorCount] = useState(1532)
   const [collaborationForm, setCollaborationForm] = useState({
     name: "",
@@ -137,40 +158,104 @@ export default function Portfolio() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
 
   useEffect(() => {
-    // Simulate visitor count increment
-    const timer = setTimeout(() => {
-      setVisitorCount((prev) => prev + Math.floor(Math.random() * 3) + 1)
-    }, 2000)
-    return () => clearTimeout(timer)
+    // Increment visitor count on page load
+    const incrementVisitorCount = async () => {
+      try {
+        const response = await fetch('/api/visitor-count', { method: 'POST' });
+        const data = await response.json();
+        setVisitorCount(data.count);
+      } catch (error) {
+        console.error('Error updating visitor count:', error);
+      }
+    };
+    
+    // Get initial count
+    const getVisitorCount = async () => {
+      try {
+        const response = await fetch('/api/visitor-count');
+        const data = await response.json();
+        setVisitorCount(data.count);
+      } catch (error) {
+        console.error('Error fetching visitor count:', error);
+      }
+    };
+    
+    getVisitorCount();
+    incrementVisitorCount();
   }, [])
 
-  const toggleMusic = () => {
-    setIsPlaying(!isPlaying)
-    // In a real implementation, you'd control an audio element here
-  }
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    isError: false,
+    message: ""
+  });
 
-  const handleCollaborationSubmit = (e: React.FormEvent) => {
+  const handleCollaborationSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Collaboration form submitted:", collaborationForm)
-    // Handle form submission
-    setCollaborationForm({ name: "", projectIdea: "", techStack: "", email: "" })
+    
+    // Reset status and set submitting
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      isError: false,
+      message: ""
+    });
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(collaborationForm),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Success
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: true,
+          isError: false,
+          message: "Your collaboration request has been received! I will get back to you soon."
+        });
+        
+        // Reset form after successful submission
+        setCollaborationForm({ name: "", projectIdea: "", techStack: "", email: "" });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setFormStatus(prev => ({ ...prev, isSuccess: false, message: "" }));
+        }, 5000);
+      } else {
+        // API error
+        setFormStatus({
+          isSubmitting: false,
+          isSuccess: false,
+          isError: true,
+          message: data.error || 'Failed to submit your request. Please try again.'
+        });
+      }
+    } catch (error) {
+      // Network or other error
+      console.error('Error submitting form:', error);
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'An error occurred while submitting your request. Please try again later.'
+      });
+    }
   }
 
   return (
     <div className="min-h-screen bg-background text-foreground font-['Inter'] overflow-x-hidden transition-colors duration-300">
-      {/* Theme and Music Toggles */}
-      <div className="fixed top-4 right-4 z-50 flex gap-2">
+      {/* Theme Toggle */}
+      <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={toggleMusic}
-            className="bg-background/80 border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-background transition-colors"
-          >
-            {isPlaying ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}🎵 Lofi
-          </Button>
-        </motion.div>
       </div>
 
       {/* Visitor Counter */}
@@ -193,7 +278,7 @@ export default function Portfolio() {
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-white drop-shadow-2xl">
               Hi, I'm <span className="text-[#00C896]">Anuj Jain</span>
               <br />I build fast, scalable <span className="text-[#00C896]">web products</span>
               <br />& startup ideas.
@@ -213,7 +298,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center button-group"
           >
             <Button
               size="lg"
@@ -233,6 +318,17 @@ export default function Portfolio() {
                 Submit Your Startup Idea
                 <Lightbulb className="ml-2 w-5 h-5" />
               </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-[#121212] px-8 bg-black/20 backdrop-blur-sm shadow-xl"
+              asChild
+            >
+              <a href="/Resume-Anuj Jain.pdf" download>
+                Download Resume
+                <Download className="ml-2 w-5 h-5" />
+              </a>
             </Button>
           </motion.div>
         </div>
@@ -279,7 +375,7 @@ export default function Portfolio() {
             <p className="theme-text-muted text-lg">Technologies I work with daily</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech.name}
@@ -292,7 +388,7 @@ export default function Portfolio() {
               >
                 <Card className="theme-card hover:border-[#00C896] transition-all duration-300 cursor-pointer">
                   <CardContent className="p-4 text-center">
-                    <div className="text-2xl mb-2">{tech.icon}</div>
+                    <div className="flex justify-center mb-2">{tech.icon}</div>
                     <h3 className="font-semibold text-sm">{tech.name}</h3>
                     <p className="text-xs theme-text-muted mt-1">{tech.category}</p>
                   </CardContent>
@@ -319,7 +415,7 @@ export default function Portfolio() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -331,20 +427,20 @@ export default function Portfolio() {
               >
                 <Card className="theme-card hover:border-[#00C896] transition-all duration-300 h-full project-card overflow-hidden">
                   {/* Project Screenshot Area */}
-                  <div className="relative h-48 bg-gradient-to-br from-[#00C896]/10 to-[#00C896]/5 flex items-center justify-center border-b border-border">
+                  <div className="relative h-48 bg-gradient-to-br from-[#00C896]/10 to-[#00C896]/5 flex items-center justify-center border-b border-border overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#00C896]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="text-center z-10">
-                      <ImageIcon className="w-12 h-12 text-[#00C896] mx-auto mb-2 opacity-50" />
-                      <p className="text-sm theme-text-muted">Project Screenshot</p>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="mt-2 border-[#00C896]/50 text-[#00C896] hover:bg-[#00C896] hover:text-white bg-transparent"
-                      >
-                        <Upload className="w-4 h-4 mr-2" />
-                        Upload Image
-                      </Button>
-                    </div>
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={`${project.title} screenshot`} 
+                        className="w-full h-full object-cover object-center dark:border dark:border-gray-700 dark:shadow-md"
+                      />
+                    ) : (
+                      <div className="text-center z-10">
+                        <ImageIcon className="w-12 h-12 text-[#00C896] mx-auto mb-2 opacity-50" />
+                        <p className="text-sm theme-text-muted">Project Screenshot</p>
+                      </div>
+                    )}
                   </div>
 
                   <CardHeader className="pb-4">
@@ -380,21 +476,27 @@ export default function Portfolio() {
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 button-group">
                       <Button
                         size="default"
                         className="flex-1 bg-[#00C896] hover:bg-[#00C896]/80 text-[#121212] font-semibold shadow-lg"
+                        asChild
                       >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </a>
                       </Button>
                       <Button
                         size="default"
                         variant="outline"
                         className="flex-1 border-[#00C896] text-[#00C896] hover:bg-[#00C896] hover:text-[#121212] bg-transparent"
+                        asChild
                       >
-                        <Github className="w-4 h-4 mr-2" />
-                        Source Code
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Source Code
+                        </a>
                       </Button>
                     </div>
                   </CardContent>
@@ -405,41 +507,17 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Certifications & Achievements */}
+      {/* Education Timeline */}
+      <section className="py-20 bg-background/50">
+        <div className="container mx-auto px-6">
+          <EducationTimeline />
+        </div>
+      </section>
+
+      {/* Achievements & Recognition */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <Trophy className="inline-block w-8 h-8 mr-3 text-[#00C896]" />
-              Achievements & Recognition
-            </h2>
-          </motion.div>
-
-          <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex-shrink-0"
-              >
-                <Badge
-                  variant="outline"
-                  className="border-[#00C896] text-[#00C896] px-4 py-2 text-sm whitespace-nowrap hover:bg-[#00C896] hover:text-[#121212] transition-colors cursor-default"
-                >
-                  {achievement}
-                </Badge>
-              </motion.div>
-            ))}
-          </div>
+          <AchievementsSection />
         </div>
       </section>
 
@@ -533,7 +611,7 @@ export default function Portfolio() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-12">Connect with Me</h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-2xl mx-auto mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 max-w-2xl mx-auto mb-12">
               <motion.a
                 href="https://github.com/ighackerbot"
                 target="_blank"

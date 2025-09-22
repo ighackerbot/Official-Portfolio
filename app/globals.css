@@ -29,6 +29,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --container-padding: 1rem;
   }
 
   .dark {
@@ -175,6 +176,15 @@
   .project-card:hover {
     box-shadow: 0 25px 50px -12px rgba(0, 200, 150, 0.25);
   }
+  
+  /* Ensure images remain visible in both themes */
+  img {
+    filter: brightness(1) contrast(1);
+  }
+  
+  .dark img {
+    filter: brightness(1.05) contrast(1.05);
+  }
 }
 
 @layer utilities {
@@ -202,4 +212,97 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 2rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  
+  .hero-bg {
+    background-position: 70% center;
+  }
+  
+  /* Improve touch targets for mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve spacing on mobile */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  /* Adjust card padding */
+  .card {
+    padding: 1rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+  }
+  
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  
+  /* Stack buttons on mobile */
+  .button-group {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  
+  .button-group > * {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Adjust spacing for small screens */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Improve readability on small screens */
+  .text-sm {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

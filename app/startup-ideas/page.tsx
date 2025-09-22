@@ -16,6 +16,7 @@ import {
   Briefcase,
   BarChart3,
   Handshake,
+  ExternalLink,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -81,12 +82,12 @@ export default function StartupIdeas() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#00C896] to-blue-600 bg-clip-text text-transparent">
-              Business Innovation Hub
+              Let's Work Together
             </h1>
 
             <p className="text-xl theme-text-muted max-w-4xl mx-auto mb-12 leading-relaxed">
-              Transform your business ideas into market-ready solutions. I partner with entrepreneurs and businesses to
-              validate concepts, build MVPs, and scale successful ventures through strategic technology implementation.
+              Have an idea? Let's bring it to life! I'm here to help turn your concepts into reality through simple, 
+              effective solutions. Together, we can build something amazing that solves real problems.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
@@ -102,10 +103,10 @@ export default function StartupIdeas() {
                         <Target className="w-10 h-10 text-[#00C896]" />
                       </div>
                     </div>
-                    <h3 className="font-bold text-xl mb-4">Market Validation</h3>
+                    <h3 className="font-bold text-xl mb-4">Idea Exploration</h3>
                     <p className="text-sm theme-text-muted leading-relaxed">
-                      We start by validating your business idea through market research, competitor analysis, and
-                      customer feedback to ensure product-market fit.
+                      We'll start by exploring your idea together, looking at what's already out there, and talking to
+                      potential users to make sure we're building something people actually want.
                     </p>
                   </CardContent>
                 </Card>
@@ -123,10 +124,10 @@ export default function StartupIdeas() {
                         <BarChart3 className="w-10 h-10 text-blue-600" />
                       </div>
                     </div>
-                    <h3 className="font-bold text-xl mb-4">Strategic Development</h3>
+                    <h3 className="font-bold text-xl mb-4">Planning Together</h3>
                     <p className="text-sm theme-text-muted leading-relaxed">
-                      Collaborative approach to refine your business model, define key metrics, and create a roadmap for
-                      sustainable growth and scalability.
+                      We'll work together to create a simple plan for your idea, focusing on what's important and
+                      mapping out the steps needed to make it successful.
                     </p>
                   </CardContent>
                 </Card>
@@ -144,40 +145,40 @@ export default function StartupIdeas() {
                         <TrendingUp className="w-10 h-10 text-purple-600" />
                       </div>
                     </div>
-                    <h3 className="font-bold text-xl mb-4">Rapid Execution</h3>
+                    <h3 className="font-bold text-xl mb-4">Building It Fast</h3>
                     <p className="text-sm theme-text-muted leading-relaxed">
-                      From concept to market launch using agile methodologies, modern tech stack, and proven business
-                      frameworks to minimize time-to-market.
+                      I'll help you build your idea quickly using the right tools and technologies, so you can
+                      get it out there and start getting feedback as soon as possible.
                     </p>
                   </CardContent>
                 </Card>
               </motion.div>
             </div>
 
-            {/* Business Stats */}
+            {/* Project Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#00C896] mb-2">50+</div>
-                <div className="text-sm theme-text-muted">Ideas Evaluated</div>
+                <div className="text-sm theme-text-muted">Ideas Discussed</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-                <div className="text-sm theme-text-muted">MVPs Built</div>
+                <div className="text-sm theme-text-muted">Projects Built</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">8</div>
-                <div className="text-sm theme-text-muted">Successful Launches</div>
+                <div className="text-sm theme-text-muted">Completed Projects</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#00C896] mb-2">95%</div>
-                <div className="text-sm theme-text-muted">Client Satisfaction</div>
+                <div className="text-sm theme-text-muted">Happy Collaborators</div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Business-Focused Idea Submission Form */}
+      {/* Idea Submission Form */}
       <section className="py-20 bg-gradient-to-r from-[#00C896]/5 to-blue-500/5">
         <div className="container mx-auto px-6">
           <motion.div
@@ -194,122 +195,57 @@ export default function StartupIdeas() {
                   </div>
                 </div>
                 <CardTitle className="text-3xl font-bold bg-gradient-to-r from-[#00C896] to-blue-600 bg-clip-text text-transparent">
-                  Partner With Me
+                  Let's Work Together
                 </CardTitle>
                 <CardDescription className="theme-text-muted text-lg max-w-2xl mx-auto">
-                  Ready to transform your business idea into reality? Share your vision and let's discuss how we can
-                  build a successful venture together.
+                  Got an idea you want to bring to life? Share your thoughts and let's talk about how we can
+                  build something great together.
                 </CardDescription>
               </CardHeader>
               <CardContent className="px-8 pb-8">
-                {isSubmitted ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-16"
-                  >
-                    <div className="w-20 h-20 bg-gradient-to-br from-[#00C896] to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-                      <Send className="w-10 h-10 text-white" />
+                <div className="space-y-8">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#00C896] to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl">
+                      <Send className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#00C896] mb-4">Business Proposal Submitted!</h3>
-                    <p className="theme-text-muted text-lg">
-                      Thank you for sharing your business vision. I'll review your proposal and get back to you within
-                      24 hours with initial feedback and next steps.
+                    <h3 className="text-xl font-bold text-[#00C896] mb-2">Share Your Idea</h3>
+                    <p className="theme-text-muted">
+                      Fill out the Google Form to tell me about your idea and I'll get back to you within 24 hours.
                     </p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-8">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="name" className="text-base font-semibold mb-2 block">
-                          Your Name *
-                        </Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange("name", e.target.value)}
-                          className="bg-background border-border focus:border-[#00C896] h-12 text-base"
-                          placeholder="John Doe"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="email" className="text-base font-semibold mb-2 block">
-                          Business Email *
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
-                          className="bg-background border-border focus:border-[#00C896] h-12 text-base"
-                          placeholder="john@company.com"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="title" className="text-base font-semibold mb-2 block">
-                        Business Idea / Project Title *
-                      </Label>
-                      <Input
-                        id="title"
-                        value={formData.title}
-                        onChange={(e) => handleInputChange("title", e.target.value)}
-                        className="bg-background border-border focus:border-[#00C896] h-12 text-base"
-                        placeholder="e.g., AI-Powered Supply Chain Management Platform"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="problem" className="text-base font-semibold mb-2 block">
-                        Market Problem & Opportunity *
-                      </Label>
-                      <Textarea
-                        id="problem"
-                        value={formData.problem}
-                        onChange={(e) => handleInputChange("problem", e.target.value)}
-                        className="bg-background border-border focus:border-[#00C896] text-base min-h-[120px]"
-                        placeholder="What specific market problem does your business solve? Who is your target audience? What's the market size and opportunity?"
-                        rows={4}
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="description" className="text-base font-semibold mb-2 block">
-                        Business Solution & Value Proposition *
-                      </Label>
-                      <Textarea
-                        id="description"
-                        value={formData.description}
-                        onChange={(e) => handleInputChange("description", e.target.value)}
-                        className="bg-background border-border focus:border-[#00C896] text-base min-h-[140px]"
-                        placeholder="Describe your solution, unique value proposition, business model, revenue streams, and competitive advantages..."
-                        rows={5}
-                        required
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-[#00C896] to-blue-500 hover:from-[#00C896]/80 hover:to-blue-500/80 text-white font-bold py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                      size="lg"
-                    >
-                      Submit Business Proposal
-                      <Send className="ml-3 w-6 h-6" />
-                    </Button>
-                  </form>
-                )}
+                  </div>
+                  
+                  <Button
+                    className="w-full bg-gradient-to-r from-[#00C896] to-blue-500 hover:from-[#00C896]/80 hover:to-blue-500/80 text-white font-bold py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+                    size="lg"
+                    asChild
+                  >
+                    <a href="https://forms.gle/PADWRz9wkpmsqbHG9" target="_blank" rel="noopener noreferrer">
+                      Open Google Form
+                      <ExternalLink className="ml-3 w-6 h-6" />
+                    </a>
+                  </Button>
+                  
+                  <div className="mt-6 p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                    <h4 className="font-semibold mb-2 flex items-center">
+                      <Lightbulb className="w-5 h-5 mr-2 text-yellow-500" />
+                      What to Include in Your Form
+                    </h4>
+                    <ul className="space-y-2 text-sm theme-text-muted">
+                      <li>• Your name and how to reach you</li>
+                      <li>• A simple description of your idea</li>
+                      <li>• Who would use it and what problem it solves</li>
+                      <li>• When you'd like to get started</li>
+                      <li>• Any special features you have in mind</li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
         </div>
       </section>
 
-      {/* Business Partnership Process */}
+      {/* How We'll Work Together */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <motion.div
@@ -319,10 +255,10 @@ export default function StartupIdeas() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Partnership Process</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">How We'll Work Together</h2>
             <p className="theme-text-muted text-xl max-w-3xl mx-auto">
-              From initial consultation to market launch - here's how we'll transform your business idea into a
-              successful venture
+              From our first chat to launching your idea - here's the simple process we'll follow to bring
+              your idea to life
             </p>
           </motion.div>
 
@@ -342,10 +278,10 @@ export default function StartupIdeas() {
                   <Globe className="w-5 h-5 text-yellow-900" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Market Analysis & Strategy</h3>
+              <h3 className="text-2xl font-bold mb-4">Planning Together</h3>
               <p className="theme-text-muted leading-relaxed">
-                Comprehensive market research, competitive analysis, and business model validation. We'll assess market
-                opportunity, define target audience, and create a go-to-market strategy.
+                We'll talk about your idea, who might use it, and what similar things already exist. This helps us
+                understand if people will want it and how to make it stand out.
               </p>
             </motion.div>
 
@@ -364,10 +300,10 @@ export default function StartupIdeas() {
                   <DollarSign className="w-5 h-5 text-green-900" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4">MVP Development & Testing</h3>
+              <h3 className="text-2xl font-bold mb-4">Building a Simple Version</h3>
               <p className="theme-text-muted leading-relaxed">
-                Build a minimum viable product using modern technologies and agile methodologies. Conduct user testing,
-                gather feedback, and iterate based on real market data.
+                We'll create a basic working version of your idea using the right tools. Then we'll let people try it out
+                and use their feedback to make it better.
               </p>
             </motion.div>
 
@@ -386,10 +322,10 @@ export default function StartupIdeas() {
                   <Rocket className="w-5 h-5 text-blue-900" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Launch & Scale</h3>
+              <h3 className="text-2xl font-bold mb-4">Going Live</h3>
               <p className="theme-text-muted leading-relaxed">
-                Execute the launch strategy, monitor key performance indicators, and implement growth strategies.
-                Continuous optimization and scaling based on market response.
+                We'll help you release your idea to the world, watch how people use it, and make improvements
+                based on what we learn to help it grow.
               </p>
             </motion.div>
           </div>
@@ -400,12 +336,12 @@ export default function StartupIdeas() {
       <footer className="py-16 border-t border-border bg-gradient-to-r from-[#00C896]/5 to-blue-500/5">
         <div className="container mx-auto px-6 text-center">
           <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">Ready to Build Your Business?</h3>
+            <h3 className="text-2xl font-bold mb-4">Ready to Start Building?</h3>
             <p className="theme-text-muted text-lg max-w-2xl mx-auto">
-              Let's turn your innovative ideas into profitable ventures. Together, we'll build something extraordinary.
+              Let's work together to bring your ideas to life. Together, we can create something amazing.
             </p>
           </div>
-          <p className="text-sm text-gray-500">© 2024 Anuj Jain. Empowering entrepreneurs through technology.</p>
+          <p className="text-sm text-gray-500">© 2024 Anuj Jain. Helping turn ideas into reality.</p>
         </div>
       </footer>
     </div>

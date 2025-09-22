@@ -1,4 +1,4 @@
-# Anuj jain portfolio
+# Anuj Jain Portfolio
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 
@@ -15,6 +15,26 @@ Any changes you make to your deployed app will be automatically pushed to this r
 Your project is live at:
 
 **[https://vercel.com/ighackerbots-projects/v0-anuj-jain-portfolio](https://vercel.com/ighackerbots-projects/v0-anuj-jain-portfolio)**
+
+## Email Configuration
+
+To enable the contact form email functionality:
+
+1. Create a `.env.local` file in the root directory with the following variables:
+   ```
+   EMAIL_HOST=smtp.gmail.com
+   EMAIL_PORT=587
+   EMAIL_SECURE=false
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASSWORD=your-app-password
+   ```
+
+2. For Gmail users:
+   - Enable 2-Step Verification on your Google account
+   - Create an App Password at https://myaccount.google.com/apppasswords
+   - Use that password in the `EMAIL_PASSWORD` field
+
+3. Add these environment variables to your Vercel deployment in the project settings.
 
 ## Build your app
 
