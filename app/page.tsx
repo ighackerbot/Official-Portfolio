@@ -51,52 +51,71 @@ const techStack = [
   { name: "WebSocket", icon: "🔌", category: "Real-time" },
   { name: "Figma", icon: "🎨", category: "Design" },
   { name: "Pandas", icon: "🐼", category: "Data" },
+  { name: "HTML", icon: "🐼", category: "Frontend" },
+  { name: "Linux", icon: "🐼", category: "OS" },
+  { name: "Cyber Security", icon: "🐼", category: "Data" },
+  { name: "Express JS", icon: "🐼", category: "Backend"},
+  { name: "MySQL", icon: "🐼", category: "Database"},
+  { name: "NodeJS", icon: "🐼", category: "Backend" },
+  { name: "Generative AI", icon: "🐼", category: "AI" },
 ]
 
 const projects = [
   {
     title: "CryptoDash",
     description:
-      "Real-time cryptocurrency dashboard with live price tracking, portfolio management, and advanced analytics for crypto traders.",
+      "CryptoDash is a real-time cryptocurrency dashboard. It offers live price tracking, historical analysis, and interactive charts in a responsive UI. The project demonstrates strong frontend development skills and modern design.",
     tech: ["React", "WebSocket", "Chart.js", "Tailwind"],
-    demo: "#",
-    github: "#",
+    demo: "https://crypto-dash-alpha.vercel.app/",
+    github: "https://github.com/ighackerbot/CryptoDash",
     status: "Live",
-    image: "/placeholder.svg?height=200&width=400&text=CryptoDash+Screenshot",
+    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/cryptodash.png",
   },
   {
-    title: "Get Insta Fresh",
+    title: "MindFulPath",
     description:
-      "Full-stack e-commerce platform for fresh groceries with real-time inventory management and delivery tracking.",
+      "MindfulPath – Mental Health Wellness Website: Developed a responsive and accessible platform to promote mental health awareness and provide wellness resources. Designed with a clean UI/UX to enhance user engagement and ensure ease of access, built using HTML & CSS, and deployed on Vercel for fast and reliable performance.",
+    tech: ["HTML", "CSS", "Vercel", "Tailwind"],
+    demo: "https://mentalhealthwellnessmindfullpath.vercel.app/",
+    github: "https://github.com/ighackerbot/mental-health-S-W",
+    status: "Live",
+    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/mindfullpath.png",
+  },
+  {
+    title: "ChefLinq",
+    description:
+      "I built an end-to-end e-commerce platform for restaurant owners, serving as an all-in-one supply hub that provides kitchen equipment, accessories, and raw food materials. The platform enables direct sourcing and bulk ordering, eliminating middlemen to ensure better pricing and efficiency. With a streamlined procurement system, it saves time through a hassle-free ordering process while maintaining a seamless supply chain for reliable and timely delivery of essentials. It also offers secure payment processing to ensure safe and smooth transactions. Overall, the solution is cost-effective and time-saving, helping restaurants optimize expenses and focus on their core business. Tech stack: React, Redux, Tailwind CSS, MongoDB, TypeScript, and Vercel.",
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    demo: "#",
+    demo: "https://chef-linq.vercel.app/",
     github: "#",
-    status: "WIP",
-    image: "/placeholder.svg?height=200&width=400&text=Get+Insta+Fresh+Screenshot",
+    status: "Work In Progress",
+    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/cheflinq.png",
   },
   {
     title: "Space Shooter",
     description:
       "Interactive web browser game built with vanilla JavaScript featuring smooth animations and engaging gameplay mechanics.",
     tech: ["JavaScript", "Canvas API", "Web Audio"],
-    demo: "#",
-    github: "#",
+    demo: "https://space-shooter-coral.vercel.app/",
+    github: "https://github.com/ighackerbot/Space-Shooter",
     status: "Live",
-    image: "/placeholder.svg?height=200&width=400&text=Space+Shooter+Screenshot",
+    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/spaceshooter.png",
   },
   {
     title: "e-Raktkosh",
     description:
       "Blood bank matching system connecting donors with recipients efficiently using location-based services and real-time notifications.",
     tech: ["React", "Firebase", "Google Maps API"],
-    demo: "#",
-    github: "#",
+    demo: "https://e-rakt.vercel.app/",
+    github: "https://github.com/ighackerbot/e-Rakt",
     status: "Live",
-    image: "/placeholder.svg?height=200&width=400&text=e-Raktkosh+Screenshot",
+    image: "/Users/anujjain/resume portfolio/Official-Portfolio/public/e-raktkosh.png",
   },
 ]
 
 const achievements = [
+  "Build Linux From Scratch - The Linux Foundation",
+  "Hacktoberfest 2024 Contributor",
   "Python Beginner Certificate – Newton School",
   "Unstop Coding Challenge (8032 / 3Lakh)",
   "Unstop Treasure Hunt (4023 / 4Lakh)",
