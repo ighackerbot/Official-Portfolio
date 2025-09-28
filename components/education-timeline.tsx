@@ -15,6 +15,27 @@ type EducationItem = {
 const educationData: EducationItem[] = [
   {
     id: 1,
+    institution: 'Newton School of Technology',
+    degree: 'Bachelor of Technology (Computer Science) ',
+    location: 'Pune-Maharstra, India',
+    period: '2024 - 2028',
+    achievements: [
+      'Build Linux From Scratch - The Linux Foundation',
+      'Participated in Hacktoberfest 2023',
+      'Secured 5th position in inter-college chess competition'
+    ]
+  },{
+    id: 2,
+    institution: 'Allen Carrer Institute',
+    degree: '',
+    location: 'Kota-Rajasthan, India',
+    period: '2023 - 2024',
+    achievements: [
+      'Qualified for JEE Main and Advanced',
+    ]
+  },
+  {
+    id: 3,
     institution: 'Mar Thoma Gram Jyoti Senior Secondry School',
     degree: 'Intermediate[Class XII]',
     location: 'Sihora-Jabalpur(M.P),India',
@@ -24,22 +45,6 @@ const educationData: EducationItem[] = [
       'Led the school chess club'
     ]
   },
-  {
-    id: 2,
-    institution: 'Allen Carrer Institute',
-    degree: '',
-    location: 'Kota-Rajasthan, India',
-    period: '2023 - 2024',
-    achievements: []
-  },
-  {
-    id: 3,
-    institution: 'Newton School of Technology',
-    degree: 'Bachelor of Technology (Computer Science) ',
-    location: 'Pune-Maharstra, India',
-    period: '2024 - 2028',
-    achievements: []
-  }
 ];
 
 export function EducationTimeline() {
