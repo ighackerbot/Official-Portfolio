@@ -113,23 +113,24 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 1;
   }
 
   .hero-overlay {
     background: linear-gradient(
       135deg,
-      rgba(18, 18, 18, 0.95) 0%,
-      rgba(18, 18, 18, 0.85) 50%,
-      rgba(0, 200, 150, 0.1) 100%
+      rgba(18, 18, 18, 0.8) 0%,
+      rgba(18, 18, 18, 0.7) 50%,
+      rgba(0, 200, 150, 0.05) 100%
     );
   }
 
   .light .hero-overlay {
     background: linear-gradient(
       135deg,
-      rgba(250, 250, 250, 0.95) 0%,
-      rgba(250, 250, 250, 0.85) 50%,
-      rgba(0, 200, 150, 0.1) 100%
+      rgba(250, 250, 250, 0.8) 0%,
+      rgba(250, 250, 250, 0.7) 50%,
+      rgba(0, 200, 150, 0.05) 100%
     );
   }
 }

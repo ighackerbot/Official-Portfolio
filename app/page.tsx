@@ -274,7 +274,7 @@ export default function Portfolio() {
       {/* Hero Section with Background Image */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden hero-bg">
         <div className="absolute inset-0 hero-overlay" />
-        <motion.div style={{ y }} className="absolute inset-0 bg-gradient-to-br from-[#00C896]/10 to-transparent" />
+        <motion.div style={{ y }} className="absolute inset-0 bg-gradient-to-br from-[#00C896]/5 to-transparent opacity-80" />
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
