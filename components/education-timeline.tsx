@@ -21,7 +21,7 @@ const educationData: EducationItem[] = [
     period: '2024 - 2028',
     achievements: [
       'Build Linux From Scratch - The Linux Foundation',
-      'Participated in Hacktoberfest 2023',
+      'Participated in Hacktoberfest 2024 and contributed to open-source projects',
       'Secured 5th position in inter-college chess competition'
     ]
   },{
